@@ -20,7 +20,7 @@ object Solution1 {
       .option("recursiveFileLookup","true")
       .option("header","true")
       .option("sep",",")
-      .csv("/Users/ambastha/IdeaProjects/Senior-DE-Tech-Challenge/input/")
+      .csv("/Users/ambastha/IdeaProjects/Senior-DE-Tech-Challenge/src/main/java/com/challenge/section1/input/")
 
     // filtering out the names with null values
     val notNullNamesDf = appDatasetDf
@@ -78,7 +78,7 @@ object Solution1 {
     val successfulDf = validEmailDf
       .filter(col("above_18").cast("int") >= 18)
 
-    successfulDf.write.mode(SaveMode.Overwrite).csv("/Users/ambastha/IdeaProjects/Senior-DE-Tech-Challenge/successful/")
+    successfulDf.write.mode(SaveMode.Overwrite).csv("/Users/ambastha/IdeaProjects/Senior-DE-Tech-Challenge/src/main/java/com/challenge/section1/successful/")
 
     // creating temp table/view to query for unsuccessful records
     trimValidAppDf.createOrReplaceTempView("trimValidAppDf")
@@ -93,7 +93,7 @@ object Solution1 {
         |OR last_name IS NULL """.stripMargin
 
     val unsuccessfulDf = spark.sql(query)
-    unsuccessfulDf.write.mode(SaveMode.Overwrite).csv("/Users/ambastha/IdeaProjects/Senior-DE-Tech-Challenge/unsuccessful/")
+    unsuccessfulDf.write.mode(SaveMode.Overwrite).csv("/Users/ambastha/IdeaProjects/Senior-DE-Tech-Challenge/src/main/java/com/challenge/section1/unsuccessful/")
 
   }
 }
