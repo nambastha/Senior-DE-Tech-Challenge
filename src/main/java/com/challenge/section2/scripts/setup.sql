@@ -29,7 +29,8 @@ CREATE TABLE items (
     item_name varchar(100) NOT NULL,
     manufacturer varchar(100) NOT NULL,
     cost int NOT NULL,
-    weight int NOT NULL
+    weight int NOT NULL,
+    quantity int NOT NULL
 );
 
 CREATE TABLE order_items (
