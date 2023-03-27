@@ -78,6 +78,8 @@ object Solution1 {
     val successfulDf = validEmailDf
       .filter(col("above_18").cast("int") >= 18)
 
+    successfulDf.show()
+
     successfulDf.write.mode(SaveMode.Overwrite).csv("/Users/ambastha/IdeaProjects/Senior-DE-Tech-Challenge/src/main/java/com/challenge/section1/successful/")
 
     // creating temp table/view to query for unsuccessful records
